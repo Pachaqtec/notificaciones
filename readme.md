@@ -23,6 +23,16 @@ npm install
 ```
 
 - Crear archivo .env:
+ agregar en el .env
+ 
+ PORT=8000
+SECRET_KEY='secret'
+MY_SQL='127.0.0.1'
+# 'http://localhost/'
+MY_SQL_USER='root'
+MY_SQL_PASSWORD=
+MY_SQL_DB="tenancy_demo"
+
 
 ```python
   imm-bakend\
