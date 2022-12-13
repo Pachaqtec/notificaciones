@@ -1,6 +1,7 @@
 // const AtencionCita = require('../../models/atencionCita/AtencionCita');
 const { handleHttpError } = require('../../helpers/handleErrors');
 const pool = require('../../config/dbConnectMySql');
+const { EMAIL_USER, PASWORD_USER, SERVICE_USER, HOST_USER } = process.env;
 var nodemailer = require('nodemailer');
 const listContractos = async(req, res) => {
     try {
@@ -31,19 +32,19 @@ const listContractos = async(req, res) => {
             let diasTranscurridos = Math.round(milisegundosTranscurridos / milisegundosDia);
             console.log(diasTranscurridos);
 
-            if (diasTranscurridos === 335 || diasTranscurridos === 350 || diasTranscurridos === 364) {
+            if (diasTranscurridos === 335 || diasTranscurridos === 350 || diasTranscurridos === 365) {
                 var transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    host: 'smtp.gmail.com ',
+                    service: SERVICE_USER,
+                    host: HOST_USER,
                     port: 465,
                     auth: {
-                        user: 'macu05b@gmail.com',
-                        pass: 'utvyqvhvtrjwujix'
+                        user: EMAIL_USER,
+                        pass: PASWORD_USER
                     }
                 });
                 // var mensaje = "Hola, Sumilda Tu Documento Electrónica está disponible Código de Cliente 20220805566 Último día de pago: 03/10/2022 Total a Pagar S/ 59.00";
                 var mailOptions = {
-                    from: 'macu05b@gmail.com',
+                    from: EMAIL_USER,
                     to: customer[i].usuario.email,
                     subject: 'Renovación de Servicio - 2CLOUD ',
                     // text: mensaje,
@@ -71,10 +72,6 @@ const listContractos = async(req, res) => {
                <p>2CLOUD PERU SAC.</p> 
                <p>Web Site: www.2cloud.pe</p> 
         
-        
-               <p>--</p> 
-               <p>Wilmer Segura</p> 
-               <p>Cel : 511 - 972732240</p> 
         `
                 };
                 transporter.sendMail(mailOptions, function(error, info) {
