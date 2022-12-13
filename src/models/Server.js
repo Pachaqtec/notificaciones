@@ -35,7 +35,7 @@ class Server {
     }
 
     cron() {
-        cron.schedule(" 50 21 10 * * *", () => {
+        cron.schedule(" 50 30 11 * * *", () => {
             console.log("Cada 3 segundos")
             listContractos();
         }, {

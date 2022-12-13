@@ -32,7 +32,7 @@ const listContractos = async(req, res) => {
             let diasTranscurridos = Math.round(milisegundosTranscurridos / milisegundosDia);
             console.log(diasTranscurridos);
 
-            if (diasTranscurridos === 335 || diasTranscurridos === 350 || diasTranscurridos === 365) {
+            if (diasTranscurridos === 335 || diasTranscurridos === 350 || diasTranscurridos === 364) {
                 var transporter = nodemailer.createTransport({
                     service: SERVICE_USER,
                     host: HOST_USER,
@@ -62,6 +62,10 @@ const listContractos = async(req, res) => {
                <p>Cuenta Corriente - Banco Crédito - BCP : 194-8968651-0-32, nuevos soles. (2CLOUD PERU SAC)</p> 
         
                <p>Cuenta Interbancaria - Banco Crédito - BCP : 00219400896865103295, nuevos soles. (2CLOUD PERU SAC - RUC:20607235709 )</p> 
+        
+               <p>Cuenta Corriente - dólares : 1949291475190, dólares. (2CLOUD PERU SAC)</p> 
+        
+               <p>Cuenta Interbancaria - dólares : 00219400929147519091, dólares. (2CLOUD PERU SAC - RUC:20607235709 )</p> 
         
                <p>Esperamos su pronta respuesta indicándonos el número de depósito.</p> 
         
